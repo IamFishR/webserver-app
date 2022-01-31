@@ -3,7 +3,7 @@ const request = require('postman-request')
 
 
 const forecast = (lat, long, callback) => {
-    const url = 'http://api.weatherstack.com/current?access_key=c96230be5ef11df713393c4b37fd179f&query=' + lat + ',' + long
+    const url = 'http://api.weatherstack.com/current?access_key=c96230be5ef11df713393c4b37fd179f&query=' + lat + ',' + long + '&units=m'
 
     request(
         {
@@ -15,19 +15,24 @@ const forecast = (lat, long, callback) => {
                 if (response.body.success == false) {
                     callback(response.body.error.type + ' - ' + response.body.error.info, undefined);
                 } else {
-                    console.log(response)
-                    const unit = response.body.request.unit
-                    const rain_prob = response.body.current.feelslike
-                    const temp = response.body.current.temperature
-                    const place_name = response.body.location.name
                     callback(undefined, {
-                        rain_prob: rain_prob,
-                        temp: temp,
-                        place_name: place_name,
-                        unit: unit,
-                        resp: response
+                        resp: response,
+                        obs_time: response.body.current.observation_time,
+                        rain_prob: response.body.current.feelslike,
+                        temp: response.body.current.temperature,
+                        precip: response.body.current.precip,
+                        humidity: response.body.current.humidity,
+                        wind_speed: response.body.current.wind_speed,
+                        unit: response.body.request.unit,
+                        weather: response.body.current.weather_descriptions,
+                        is_day: response.body.current.is_day,
+                        place_name: response.body.location.name,
+                        region: response.body.location.region,
+                        country: response.body.location.country,
+                        time: response.body.location.localtime,
+                        para: "It is currently " + response.body.current.temperature + " " + response.body.request.unit + " in " + response.body.location.name +
+                         ". It feels like " + response.body.current.feelslike + " " + response.body.request.unit + " out",
                     })
-                    // callback(undefined,"It is currently " + temp + " " + unit + " in " + place_name + ". It feels like " + rain_prob + " " + unit + " out")
                 }
             }
         }

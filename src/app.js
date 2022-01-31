@@ -64,7 +64,11 @@ app.get('/weather', (req, res) => {
             })
         }
 
-        forecast(latitude, longitude, (error, {rain_prob, temp, place_name, unit, resp}) => {
+        forecast(latitude, longitude, (error, {
+            rain_prob, temp, place_name, unit, resp,
+            obs_time, precip, humidity, wind_speed, weather,
+            is_day, region, country, time, para
+        }) => {
             if(error) {
                 return res.send({
                     error: error
@@ -75,7 +79,17 @@ app.get('/weather', (req, res) => {
                 temp: temp,
                 place_name: place_name,
                 unit: unit,
-                resp: resp
+                resp: resp,
+                obs_time: obs_time,
+                precip: precip,
+                humidity: humidity,
+                wind_speed: wind_speed,
+                weather: weather,
+                is_day: is_day,
+                region: region,
+                country: country,
+                time: time,
+                para: para
             })
         })
     })

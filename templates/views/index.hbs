@@ -1,16 +1,50 @@
 {{>header}}
 
 <div class="main-content">
-    {{!-- <h4>created by {{name}}</h4> --}}
 
     <div class="form-container">
-        <h1 class="text-center">Weather Forecast App</h1>
-        <form action="#">
-            <input type="text" name="address" id="address">
+        <h1 class="form-title">Weather Forecast App</h1>
+        <form action="#" autocomplete="off">
+            <input type="text" name="address" id="address" placeholder="Enter your city name..">
             <button id="search">Search</button>
         </form>
-        <div>
-            <p class="response"></p>
+        <p class="response"></p>
+    </div>
+    <div class="response-container">
+        <div class="flex">
+            <div class="flex-60">
+                <img src="./img/moon_cloud.svg" alt="moon cloud" srcset="">
+            </div>
+            <div>
+                <p class="location"></p>
+                <div class="grid">
+                    <div class="date">
+                        <span><span class="temp"></span> <img src="./img/celcius.svg" alt="c" srcset="" width="14px"></span>
+                        <p class="time">Sunday, 11am</p>
+                    </div>
+                    <div class="tags"></div>
+                    <div class="para">
+                        It is currently 25 m in Bombay Ballard Estate. It feels like 25 m out
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex extra-info">
+            <div>
+                <img src="./img/noun-rain.svg" alt="rain">
+                <span>Precipitation</span>
+                <span> <span class="precip"></span> %</span>
+            </div>
+            <div>
+                <img src="./img/noun-humidity.svg" alt="humidity">
+                <span>Humidity</span>
+                <span><span class="humidity"></span>%</span>
+            </div>
+            <div>
+                <img src="./img/noun-wind.svg" alt="wind">
+                <span>Wind</span>
+                <span><span class="wind_speed"></span> km/h</span>
+            </div>
         </div>
     </div>
 </div>

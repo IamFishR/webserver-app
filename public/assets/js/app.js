@@ -1,9 +1,14 @@
-const search = document.querySelector('#search');
+const doc = document
+const search = doc.querySelector('#search')
+
+doc.querySelector(".response-container").style.display = 'none'
+
+
 
     search.addEventListener('click', (e) => {
         e.preventDefault();
-        const query = document.querySelector('#address')
-        const response = document.querySelector('.response')
+        const query = doc.querySelector('#address')
+        const response = doc.querySelector('.response')
         response.innerHTML = ''
         response.classList.remove('text-danger')
 
@@ -12,11 +17,30 @@ const search = document.querySelector('#search');
                 if (data.error) {
                     response.innerHTML = data.error
                     response.classList.add('text-danger')
+                    setTimeout((e)=> {
+                        response.innerHTML = ''
+                    }, 4000)
                 } else {
-                    const h = "It is currently " + data.temp + " " + data.unit + " in " + data.place_name + ". It feels like " + data.rain_prob + " " + data.unit + " out"
+                    doc.querySelector(".form-container").style.display = 'none'
+                    doc.querySelector(".response-container").style.display = 'block'
 
-                    response.innerHTML = h
-                    console.log(data.resp)
+                    const obs_time = data.obs_time;
+
+                    doc.querySelector(".location").innerHTML = data.place_name + ', '+ data.region + ', '+ data.country
+                    doc.querySelector(".temp").innerHTML = data.temp
+                    doc.querySelector(".time").innerHTML = new Date(data.time).toDateString()
+                    doc.querySelector(".para").innerHTML = data.para
+                    doc.querySelector(".precip").innerHTML = data.precip
+                    doc.querySelector(".humidity").innerHTML = data.humidity
+                    doc.querySelector(".wind_speed").innerHTML = data.wind_speed
+                    
+                    data.weather.forEach(element => {
+                        let anchor = doc.createElement('a')
+                        anchor.href = 'javascript:void(0)'
+                        anchor.innerHTML = element;
+                        anchor.title = 'weather information'
+                        doc.querySelector('.tags').appendChild(anchor)
+                    });
                 }
             })
         })

@@ -1,10 +1,11 @@
 html, body, * {
     margin: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Alegreya Sans', sans-serif;
-    color: #333;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -18,33 +19,102 @@ h1, p, input, button {
     margin-bottom: 1rem;
 }
 
+.date span:first-child {
+    font-weight: 900;
+    font-size: 4rem;
+    margin-bottom: 0px;
+    line-height: 1;
+}
+
+.date span:first-child img {
+    vertical-align: super;
+    margin-left: -5px;
+}
+
+.extra-info {
+    margin: 1rem 0rem;
+}
+
+.extra-info > div {
+    margin-right: 3rem;
+}
+
+.extra-info > div > * {
+    margin-right: 1rem;
+    vertical-align: middle;
+}
+
+.tags a {
+    font-size: 0.8rem;
+    border: 1px solid transparent;
+    border-radius: 2rem;
+    text-decoration: none;
+    padding: 0.4rem 1rem;
+    color: #ffffff;
+    
+}
+
+.tags a:nth-child(even) {
+    background: rgba(106, 117, 186, 0.5);
+}
+
+.tags a:nth-child(odd) {
+    background: rgba(212, 66, 111, 0.5);
+}
+
+.location {
+    font-weight: 900;
+    font-size: 1.6rem;
+    margin: 3rem auto;
+}
+
 .form-container {
     display: flex;
     flex-direction: column;
 }
 
 input {
-    background: rgba(255, 255, 255, 0.14);
+    background: rgba(225, 221, 255, 0.14);
     padding: 0.7rem 1rem;
+    border: 1px solid transparent;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.14);
+    color: #ffffff;
+}
+
+input::placeholder {
     color: #ffffff;
 }
 
 button {
-    background: #ffffff;
-    color: #999999;
+    background: #5E4FC1;
+    color: #ffffff;
     padding: 0.7rem 2rem;
+    border: 1px solid #5E4FC1;
+    text-transform: capitalize;
+    font-weight: 400;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.18);
+    
 }
 
 input, button {
-    border: 1px solid #FFFFFF;
-    box-sizing: border-box;
     border-radius: 4px;
+    box-sizing: border-box;
 }
 
-input:focus, button:focus {
-    box-shadow: 0 0 0 .25rem rgba(255, 255, 255, 0.25);
-    border-color: inherit;
+input:focus {
+    border-color: transparent;
     outline: none;
+    border-bottom: 1px solid #5E4FC1;
+    border-bottom-left-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+}
+
+button:focus {
+    box-shadow: 0 0 0 .25rem rgba(94, 79, 193, 0.522);
+    border-color: #5E4FC1;
+    outline: none;
+
 }
 
 .text-danger {
@@ -57,16 +127,108 @@ footer {
     color: #ffffff;
 }
 
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.site-container {
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    width: 100%;
+}
+
+input {
+    width: 100%;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+button {
+    margin: 1rem auto;
+    display: block;
+}
+
+.flex-60 {
+    text-align: right;
+}
+
+.flex-60 img {
+    width: 50%;
+}
+.date {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.tags {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.para {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+.para {
+    margin: 2rem 0rem;
+}
+
+.tags {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.tags a {
+    margin-bottom: 0.6rem;
+}
+
 @media only screen and (min-width: 968px) {
     body {
         justify-content: center;
         align-items: center;
+    }
+    .para {
+        margin: auto;
+    }
+    input {
+        width: auto;
+    }
+    button {
+        display: initial;
+        margin-left: 0.7rem;
     }
     .main-content {
         padding: 0rem 7rem;
     }
     .site-container {
         width: 1140px;
+        padding: 0;
+        min-height: auto;
+    }
+
+    .response-container {
+        background: rgba(29, 22, 25, 0.03);
+        margin: 2rem 0rem;
+        padding: 2rem;
     }
     
     .form-container {
@@ -75,5 +237,46 @@ footer {
         align-items: center;
         margin: 2rem 0rem;
         padding: 2rem 0rem;
+    }
+    .flex {
+        flex-direction: row;
+    }
+    .grid {
+        grid-template-rows: repeat(3, 1fr)
+    }
+    .date {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 4;
+    }
+    .tags {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        text-align: left;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .tags a {
+        margin-right: 0.4rem;
+    }
+    .para {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 4;
+    }
+    .flex-60 {
+        width: 60%;
+        text-align: left;
+    }
+    .form-title {
+        text-align: left;
+    }
+    .location {
+        margin: auto;
+        margin-bottom: 3rem;
     }
 }
