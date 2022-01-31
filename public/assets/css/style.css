@@ -1,38 +1,79 @@
+html, body, * {
+    margin: 0;
+}
+
 body {
     font-family: 'Alegreya Sans', sans-serif;
     color: #333;
     display: flex;
     flex-direction: column;
-    margin: 0px auto;
-    padding: 0px;
+    align-items: flex-start;
     min-height: 100vh;
-    background-image: linear-gradient(180deg, #E75481 -22.84%, #929CDE 113.36%);;
+    background-image: linear-gradient(180deg, #E75481 -22.84%, #929CDE 113.36%);
+    font-size: 16px;
 }
 
-.main-content {
-    flex-grow: 1;
+h1, p, input, button {
+    color: #fff;
+    margin-bottom: 1rem;
 }
 
-h1 {
-    color: rosybrown
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    background: rgba(255, 255, 255, 0.14);
+    padding: 0.7rem 1rem;
+    color: #ffffff;
+}
+
+button {
+    background: #ffffff;
+    color: #999999;
+    padding: 0.7rem 2rem;
+}
+
+input, button {
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+input:focus, button:focus {
+    box-shadow: 0 0 0 .25rem rgba(255, 255, 255, 0.25);
+    border-color: inherit;
+    outline: none;
+}
+
+.text-danger {
+    color: #882020;
+    text-transform: capitalize;
 }
 
 footer {
     margin-top: 30px;
-    color: #c3c3c3;
+    color: #ffffff;
 }
 
-.title {
-    margin-top: 50px;
-    margin-bottom: 20px;
-}
-
-header {
-    margin-bottom: 60px;
-}
-
-header a {
-    color: #a7a7a7;
-    text-decoration: none;
-    margin-right: 5px;
+@media only screen and (min-width: 968px) {
+    body {
+        justify-content: center;
+        align-items: center;
+    }
+    .main-content {
+        padding: 0rem 7rem;
+    }
+    .site-container {
+        width: 1140px;
+    }
+    
+    .form-container {
+        background: rgba(29, 22, 25, 0.03);
+        justify-content: center;
+        align-items: center;
+        margin: 2rem 0rem;
+        padding: 2rem 0rem;
+    }
 }
