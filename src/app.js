@@ -7,7 +7,7 @@ const geocode = require('./utils/geocode')
 const app = express()
 
 // console.log(path.join(__dirname, '../public'));
-// console.log(__dirname);
+console.log(__dirname);
 // console.log(__filename);
 
 const publicDirectoryPath = path.join(__dirname, '../public')
