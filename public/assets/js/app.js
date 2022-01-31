@@ -1,5 +1,5 @@
-const search = document.querySelector('#search')
 const doc = document
+const search = doc.querySelector('#search')
 
 doc.querySelector(".response-container").style.display = 'none'
 
@@ -7,8 +7,8 @@ doc.querySelector(".response-container").style.display = 'none'
 
     search.addEventListener('click', (e) => {
         e.preventDefault();
-        const query = document.querySelector('#address')
-        const response = document.querySelector('.response')
+        const query = doc.querySelector('#address')
+        const response = doc.querySelector('.response')
         response.innerHTML = ''
         response.classList.remove('text-danger')
 
@@ -17,6 +17,9 @@ doc.querySelector(".response-container").style.display = 'none'
                 if (data.error) {
                     response.innerHTML = data.error
                     response.classList.add('text-danger')
+                    setTimeout((e)=> {
+                        response.innerHTML = ''
+                    }, 4000)
                 } else {
                     doc.querySelector(".form-container").style.display = 'none'
                     doc.querySelector(".response-container").style.display = 'block'
@@ -30,7 +33,7 @@ doc.querySelector(".response-container").style.display = 'none'
                     doc.querySelector(".precip").innerHTML = data.precip
                     doc.querySelector(".humidity").innerHTML = data.humidity
                     doc.querySelector(".wind_speed").innerHTML = data.wind_speed
-                    console.log(data)
+                    
                     data.weather.forEach(element => {
                         let anchor = doc.createElement('a')
                         anchor.href = 'javascript:void(0)'
