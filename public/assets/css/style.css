@@ -201,7 +201,15 @@ button {
     margin-bottom: 0.6rem;
 }
 
+.extra-info > div {
+    margin-bottom: 0.7rem;
+}
+
 @media only screen and (min-width: 968px) {
+    .extra-info > div {
+        margin-bottom: 0rem;
+    }
+
     body {
         justify-content: center;
         align-items: center;
