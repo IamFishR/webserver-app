@@ -24,7 +24,7 @@ search.addEventListener('click', (e) => {
     response.innerHTML = ''
     response.classList.remove('text-danger')
 
-    fetch('http://localhost:3000/weather?address='+query.value).then((res) => {
+    fetch('/weather?address='+query.value).then((res) => {
         res.json().then((data) => {
             if(data.error) {
                 response.innerHTML = data.error
